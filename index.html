@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspeção Veicular - BAHIALOG</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="pdf.css">
+</head>
+<body>
+    <h2>INSPEÇÃO VEICULAR</h2>
+    <form id="inspecaoForm">
+        <label>Número: <input type="text" name="Número"></label>
+        <label>Placa 1: <input type="text" name="Placa 1"></label>
+        <label>Placa 2: <input type="text" name="Placa 2"></label>
+        <label>Km: <input type="text" name="Km"></label>
+        <label>Motorista: <input type="text" name="Motorista"></label>
+        <label>Data: <input type="date" name="Data"></label>
+        <hr>   
+        <h2>1) MOTORISTA</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>OK</th>
+                    <th>Não OK</th>
+                    <th>NÃO SE APLICA</th>
+                </tr>          
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CNH válida?</td>
+                    <td><input type="radio" name="CNH válida?" value="OK"></td>
+                    <td><input type="radio" name="CNH válida?" value="NÃO ESTÁ OK"></td>
+                    <td><input type="radio" name="CNH válida?" value="NÃO SE APLICA"></td>
+                </tr>
+                <tr>
+                    <td>Apresentação (asseio, educação, uniforme)</td>
+                    <td><input type="radio" name="Apresentação (asseio, educação, uniforme)" value="OK"></td>
+                    <td><input type="radio" name="Apresentação (asseio, educação, uniforme)" value="NÃO ESTÁ OK"></td>
+                    <td><input type="radio" name="Apresentação (asseio, educação, uniforme)" value="NÃO SE APLICA"></td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <h3>2) VEICULO - INTERNO</h3>
+        <table>  
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>OK</th>
+                    <th>Não OK</th>
+                    <th>NÃO SE APLICA</th>
+                </tr>          
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Buzina e limpador de para-brisa estão funcionando?</td>
+                    <td><input type="radio" name="Buzina e limpador de para-brisa estão funcionando?" value="OK"></td>
+                    <td><input type="radio" name="Buzina e limpador de para-brisa estão funcionando?" value="NÃO ESTÁ OK"></td>
+                    <td><input type="radio" name="Buzina e limpador de para-brisa estão funcionando?" value="NÃO SE APLICA"></td>
+                </tr>
+                <tr>
+                    <td>O sistema de direção apresenta folga?</td>
+                    <td><input type="radio" name="O sistema de direção apresenta folga?" value="OK"></td>
+                    <td><input type="radio" name="O sistema de direção apresenta folga?" value="NÃO ESTÁ OK"></td>
+                    <td><input type="radio" name="O sistema de direção apresenta folga?" value="NÃO SE APLICA"></td>
+                </tr>
+                <tr>
+                    <td>Os retrovisores boa visibilidade?</td>
+                    <td><input type="radio" name="Os retrovisores oferecem boa visibilidade?" value="OK"></td>
+                    <td><input type="radio" name="Os retrovisores oferecem boa visibilidade?" value="NÃO ESTÁ OK"></td>
+                    <td><input type="radio" name="Os retrovisores oferecem boa visibilidade?" value="NÃO SE APLICA"></td>
+                </tr>
+                <tr>
+                    <td>Aparelho celular e carregador estão lacrados e dentro da validade?</td>
+                    <td><input type="radio" name="Aparelho celular e carregador estão lacrados e dentro da validade?" value="OK"></td>
+                    <td><input type="radio" name="Aparelho celular e carregador estão lacrados e dentro da validade?" value="NÃO ESTÁ OK"></td>
+                    <td><input type="radio" name="Aparelho celular e carregador estão lacrados e dentro da validade?" value="NÃO SE APLICA"></td>
+                </tr>
+                <tr>
+                    <td>O extintor está carregado, lacrado e dentro da validade?</td>
+                    <td><input type="radio" name="O extintor está carregado, lacrado e dentro da validade?" value="OK"></td>
+                    <td><input type="radio" name="O extintor está carregado, lacrado e dentro da validade?" value="NÃO ESTÁ OK"></td>
+                    <td><input type="radio" name="O extintor está carregado, lacrado e dentro da validade?" value="NÃO SE APLICA"></td>
+                </tr>
+                <tr>
+                    <td>Aparelho Nextel e carregadores estão disponíveis?</td>
+                    <td><input type="radio" name="Aparelho Nextel e carregadores estão disponíveis?" value="OK"></td>
+                    <td><input type="radio" name="Aparelho Nextel e carregadores estão disponíveis?" value="NÃO ESTÁ OK"></td>
+                    <td><input type="radio" name="Aparelho Nextel e carregadores estão disponíveis?" value="NÃO SE APLICA"></td>
+                </tr>
+                <tr>
+                    <td>Cartões, ANTT, seguro e adesivos do painel estão no veículo?</td>
+                    <td><input type="radio" name="Cartões, ANTT, seguro e adesivos do painel estão no veículo?" value="OK"></td>
+                    <td><input type="radio" name="Cartões, ANTT, seguro e adesivos do painel estão no veículo?" value="NÃO ESTÁ OK"></td>
+                    <td><input type="radio" name="Cartões, ANTT, seguro e adesivos do painel estão no veículo?" value="NÃO SE APLICA"></td>
+                </tr>
+                <tr>
+                    <td>CRLV está dentro do prazo de validade?</td>
+                    <td><input type="radio" name="CRLV está dentro do prazo de validade?" value="OK"></td>
+                    <td><input type="radio" name="CRLV está dentro do prazo de validade?" value="NÃO ESTÁ OK"></td>
+                    <td><input type="radio" name="CRLV está dentro do prazo de validade?" value="NÃO SE APLICA"></td>
+                </tr>
+                <tr>
+                    <td>A dedetização está dentro do prazo de validade?</td>
+                    <td><input type="radio" name="A dedetização está dentro do prazo de validade?" value="OK"></td>
+                    <td><input type="radio" name="A dedetização está dentro do prazo de validade?" value="NÃO ESTÁ OK"></td>
+                    <td><input type="radio" name="A dedetização está dentro do prazo de validade?" value="NÃO SE APLICA"></td>
+                </tr>
+                <tr>
+                    <td>O documento do MOP está disponível?</td>
+                    <td><input type="radio" name="O documento do MOP está disponível?" value="OK"></td>
+                    <td><input type="radio" name="O documento do MOP está disponível?" value="NÃO ESTÁ OK"></td>
+                    <td><input type="radio" name="O documento do MOP está disponível?" value="NÃO SE APLICA"></td>
+                </tr>
+                <tr>
+                    <td>Macaco, chave de roda e triângulo estão no veículo?</td>
+                    <td><input type="radio" name="Macaco, chave de roda e triângulo estão no veículo?" value="OK"></td>
+                    <td><input type="radio" name="Macaco, chave de roda e triângulo estão no veículo?" value="NÃO ESTÁ OK"></td>
+                    <td><input type="radio" name="Macaco, chave de roda e triângulo estão no veículo?" value="NÃO SE APLICA"></td>
+                </tr>
+                <tr>
+                    <td>O para-brisa está sem trincas?</td>
+                    <td><input type="radio" name="O para-brisa está sem trincas?" value="OK"></td>
+                    <td><input type="radio" name="O para-brisa está sem trincas?" value="NÃO ESTÁ OK"></td>
+                    <td><input type="radio" name="O para-brisa está sem trincas?" value="NÃO SE APLICA"></td>
+                </tr>
+                <tr>
+                    <td>As luzes do painel estão funcionando?</td>
+                    <td><input type="radio" name="As luzes do painel estão funcionando?" value="OK"></td>
+                    <td><input type="radio" name="As luzes do painel estão funcionando?" value="NÃO ESTÁ OK"></td>
+                    <td><input type="radio" name="As luzes do painel estão funcionando?" value="NÃO SE APLICA"></td>
+                </tr>
+                <tr>
+                    <td>A troca de óleo e revisão estão em dia?</td>
+                    <td><input type="radio" name="A troca de óleo e revisão estão em dia?" value="OK"></td>
+                    <td><input type="radio" name="A troca de óleo e revisão estão em dia?" value="NÃO ESTÁ OK"></td>
+                    <td><input type="radio" name="A troca de óleo e revisão estão em dia?" value="NÃO SE APLICA"></td>
+                </tr>
+                <tr>
+                    <td>Os cartões Express estão disponíveis?</td>
+                    <td><input type="radio" name="Os cartões Express estão disponíveis?" value="OK"></td>
+                    <td><input type="radio" name="Os cartões Express estão disponíveis?" value="NÃO ESTÁ OK"></td>
+                    <td><input type="radio" name="Os cartões Express estão disponíveis?" value="NÃO SE APLICA"></td>
+                </tr>
+                <tr>
+                    <td>O rádio PX está funcionando?</td>
+                    <td><input type="radio" name="O rádio PX está funcionando?" value="OK"></td>
+                    <td><input type="radio" name="O rádio PX está funcionando?" value="NÃO ESTÁ OK"></td>
+                    <td><input type="radio" name="O rádio PX está funcionando?" value="NÃO SE APLICA"></td>
+                </tr>
+                <tr>
+                    <td>O dispositivo Via Fácil está disponível?</td>
+                    <td><input type="radio" name="O dispositivo Via Fácil está disponível 1" value="OK"></td>
+                    <td><input type="radio" name="O dispositivo Via Fácil está disponível 1" value="NÃO ESTÁ OK"></td>
+                    <td><input type="radio" name="O dispositivo Via Fácil está disponível 1" value="NÃO SE APLICA"></td>
+                </tr>                
+                <tr>
+                    <td>O forro do veículo está em boas condições?</td>
+                    <td><input type="radio" name="O forro do veículo está em boas condições?" value="OK"></td>
+                    <td><input type="radio" name="O forro do veículo está em boas condições?" value="NÃO ESTÁ OK"></td>
+                    <td><input type="radio" name="O forro do veículo está em boas condições?" value="NÃO SE APLICA"></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <button type="button" onclick="gerarPDF()">Gerar PDF</button>
+    </form>
+
+    <script>
+        function gerarPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            let form = document.getElementById('inspecaoForm');
+            let data = new FormData(form);
+            let y = 10;
+    
+            // Título principal
+            doc.setFontSize(16);
+            doc.text("INSPEÇÃO VEICULAR", 10, y);
+            y += 10;
+            doc.line(10, y, 200, y);
+            y += 10;
+            doc.setFontSize(12);
+    
+            // Coletando dados da INSPEÇÃO VEICULAR
+            let dadosInspVeicular = ["Número", "Placa 1", "Placa 2", "Km", "Motorista", "Data"];
+            for (let [key, value] of data.entries()) {
+                if (dadosInspVeicular.includes(key)) {
+                    doc.text(`${key}: ${value}`, 10, y);
+                    y += 7;
+                }
+            }
+    
+            // Linha separadora antes do 1) MOTORISTA
+            y += 5;
+            doc.line(10, y, 200, y);
+            y += 7;
+    
+            // Seção 1) MOTORISTA
+            doc.setFontSize(14);
+            doc.text("1) MOTORISTA", 10, y);
+            y += 10;
+            doc.setFontSize(12);
+    
+            let motoristaKeys = ["CNH válida?", "Apresentação (asseio, educação, uniforme)"];
+            let veiculoInterno = [];
+    
+            for (let [key, value] of data.entries()) {
+                if (motoristaKeys.includes(key)) {
+                    doc.text(`${key}: ${value}`, 10, y);
+                    y += 7;
+                } else if (!dadosInspVeicular.includes(key)) {
+                    veiculoInterno.push({ key, value });
+                }
+            }
+    
+            // Linha separadora antes do 2) VEÍCULO - INTERNO
+            y += 5;
+            doc.line(10, y, 200, y);
+            y += 7;
+    
+            // Seção 2) VEÍCULO - INTERNO
+            doc.setFontSize(14);
+            doc.text("2) VEÍCULO - INTERNO", 10, y);
+            y += 10;
+            doc.setFontSize(12);
+    
+            for (let item of veiculoInterno) {
+                doc.text(`${item.key}: ${item.value}`, 10, y);
+                y += 7;
+            }
+    
+            doc.save("inspeção veicular BAHIALOG.pdf");
+        }
+    </script>
+</body>
+</html>
