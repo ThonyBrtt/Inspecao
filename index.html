@@ -170,7 +170,35 @@
     </form>
 
     <script>
+        function verificarCamposPreenchidos() {
+            let form = document.getElementById('inspecaoForm');
+            let data = new FormData(form);
+            
+            // Verifica se todos os campos obrigatórios estão preenchidos
+            for (let [key, value] of data.entries()) {
+                if (!value) {
+                    alert("Por favor, preencha todos os campos e selecione as opções.");
+                    return false;
+                }
+            }
+
+            // Verifica se todas as opções de radio buttons foram marcadas
+            let radios = form.querySelectorAll('input[type="radio"]');
+            for (let radio of radios) {
+                if (!radio.checked) {
+                    alert("Por favor, marque todas as opções de verificação.");
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         function gerarPDF() {
+            if (!verificarCamposPreenchidos()) {
+                return;
+            }
+
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
             
