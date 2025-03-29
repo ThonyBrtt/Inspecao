@@ -153,9 +153,9 @@
                 </tr>
                 <tr>
                     <td>O dispositivo Via Fácil está disponível?</td>
-                    <td><input type="radio" name="O dispositivo Via Fácil está disponível 1" value="OK"></td>
-                    <td><input type="radio" name="O dispositivo Via Fácil está disponível 1" value="NÃO ESTÁ OK"></td>
-                    <td><input type="radio" name="O dispositivo Via Fácil está disponível 1" value="NÃO SE APLICA"></td>
+                    <td><input type="radio" name="O dispositivo Via Fácil está disponível?" value="OK"></td>
+                    <td><input type="radio" name="O dispositivo Via Fácil está disponível?" value="NÃO ESTÁ OK"></td>
+                    <td><input type="radio" name="O dispositivo Via Fácil está disponível?" value="NÃO SE APLICA"></td>
                 </tr>                
                 <tr>
                     <td>O forro do veículo está em boas condições?</td>
@@ -173,29 +173,45 @@
         function verificarCamposPreenchidos() {
             let form = document.getElementById('inspecaoForm');
             let data = new FormData(form);
-
+    
             for (let [key, value] of data.entries()) {
                 if (!value) {
                     alert("Por favor, preencha todos os campos e selecione as opções.");
                     return false;
                 }
             }
-
+    
             let radios = form.querySelectorAll('input[type="radio"]');
-            for (let radio of radios) {
-                if (!radio.checked) {
-                    alert("Por favor, marque todas as opções de verificação.");
+            let radioGroups = {};
+    
+            radios.forEach(radio => {
+                if (!radioGroups[radio.name]) {
+                    radioGroups[radio.name] = false;
+                }
+            });
+    
+            for (let groupName in radioGroups) {
+                let checked = false;
+                form.querySelectorAll(`input[name="${groupName}"]`).forEach(radio => {
+                    if (radio.checked) {
+                        checked = true;
+                    }
+                });
+
+                if (!checked) {
+                    alert(`Por favor, marque uma opção para: ${groupName}`);
                     return false;
                 }
             }
-
+    
             return true;
         }
+    
         function gerarPDF() {
             if (!verificarCamposPreenchidos()) {
                 return;
             }
-
+    
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
             
@@ -256,5 +272,6 @@
             doc.save("inspeção veicular BAHIALOG.pdf");
         }
     </script>
+    
 </body>
 </html>
