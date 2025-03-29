@@ -6,6 +6,7 @@
     <title>Inspeção Veicular - BAHIALOG</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <link rel="stylesheet" href="pdf.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <h2>INSPEÇÃO VEICULAR</h2>
@@ -185,7 +186,6 @@
             y += 10;
             doc.setFontSize(12);
     
-            // Coletando dados da INSPEÇÃO VEICULAR
             let dadosInspVeicular = ["Número", "Placa 1", "Placa 2", "Km", "Motorista", "Data"];
             for (let [key, value] of data.entries()) {
                 if (dadosInspVeicular.includes(key)) {
@@ -194,12 +194,10 @@
                 }
             }
     
-            // Linha separadora antes do 1) MOTORISTA
             y += 5;
             doc.line(10, y, 200, y);
             y += 7;
     
-            // Seção 1) MOTORISTA
             doc.setFontSize(14);
             doc.text("1) MOTORISTA", 10, y);
             y += 10;
@@ -217,12 +215,10 @@
                 }
             }
     
-            // Linha separadora antes do 2) VEÍCULO - INTERNO
             y += 5;
             doc.line(10, y, 200, y);
             y += 7;
     
-            // Seção 2) VEÍCULO - INTERNO
             doc.setFontSize(14);
             doc.text("2) VEÍCULO - INTERNO", 10, y);
             y += 10;
